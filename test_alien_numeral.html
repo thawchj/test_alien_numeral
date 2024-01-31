@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="inputsymbol">
+        <button onclick="cal()">click!</button>
+        <h1 id="show"></h1>
+    </div>
+</body>
+<script>
+    function cal() {
+        let input = document.getElementById("inputsymbol").value
+
+        let symbol = {
+            'A': 1,
+            'B': 5,
+            'Z': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'R': 1000
+        }
+
+        let r = 0
+
+        for (let i = 0; i < input.length; i++) {
+            let num1 = symbol[input[i]]
+            let num2 = symbol[input[i+1]]
+
+            if(num1 < num2){
+                r = r + (num2 - num1)
+                i++
+            }
+            else{
+                r = r + num1
+            }
+        }
+
+        document.getElementById("show").innerHTML = r
+    }
+
+   
+</script>
+
+</html>
